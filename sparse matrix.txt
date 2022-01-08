@@ -1,0 +1,67 @@
+# include<stdio.h>
+
+int main()
+{
+    int m,n,i,j,t;
+    int a[20][20];
+    printf("\nENTER NO. OF ROWS : ");
+    scanf("%d",&m);
+    printf("\nENTER NO. OF COLUMNS : ");
+    scanf("%d",&n);
+    printf("\nENTER NO. OF NON-ZERO ELEMENTS : ");
+    scanf("%d",&t);
+    
+    printf("\n\tENTER VALUES IN THE MATRIX\n");
+    for(i =1;i<=m;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            printf("ENTER VALUE FOR a[%d][%d] : ",i,j);
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("\nMATRIX IS\n");
+    for(i=1;i<=m;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\n");
+
+    int b[t+1][3];
+    b[1][1]=m;
+    b[1][2]=n;
+    b[1][3]=t;
+
+    int q=2;
+    for(i=1;i<=m;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            if(a[i][j]!=0)
+            {
+                b[q][1]=i;
+                b[q][2]=j;
+                b[q][3]=a[i][j];
+                q=q+1;
+            }
+        }
+    }
+
+    printf("\n\tARRAY REPRESENTATION IS\n");
+    for(i=1;i<=t+1;i++)
+    {
+        for(j=1;j<=3;j++)
+        {
+            printf("%d ",b[i][j]);
+        }
+        printf("\n");
+    }
+   
+    return 0;
+}
+
